@@ -1,15 +1,18 @@
 <template>
   <div v-if="results.length > 0">
-    <p id="nresult"> {{ results.length }} results found</p>
-     <table class="table table-hover">
+
+    <p id="nresult"> {{ results.length }} results found :
+      <strong> {{ direction }} {{ accountname }} </strong>
+    </p>
+    <table class="table table-hover">
       <thead>
         <tr>
-         <th> From </th>
-         <th> To </th>
-         <th> Ammount </th>
-         <th> Asset </th>
-         <th> Timestamp </th>
-         </tr>
+          <th> From </th>
+          <th> To </th>
+          <th> Ammount </th>
+          <th> Asset </th>
+          <th> Timestamp </th>
+        </tr>
       </thead>
       <tbody>
         <tr v-for="result in results">
@@ -26,35 +29,40 @@
 </template>
 
 <script>
-export default {
-    props: ['results'],
-    data: function() {
+  export default {
+    props: ['results',
+      'direction',
+      'accountname'
+    ],
+    data: function () {
       return {
-        
+
       }
     },
- }
+  }
 </script>
 
 <style scoped>
- #nresult {
-   color: rgb(95.6%, 29.8%, 36.3%);
- }
+  #nresult {
+    color: rgb(95.6%, 29.8%, 36.3%);
+  }
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-   background-color: rgba(220, 0, 0, 0.2);
-}
+  .table-hover tbody tr:hover td,
+  .table-hover tbody tr:hover th {
+    background-color: rgba(220, 0, 0, 0.2);
+  }
 
-p, th, td {
-   font-family: 'Raleway', sans-serif;
-}
+  p,
+  th,
+  td {
+    font-family: 'Raleway', sans-serif;
+  }
 
-.table th{
-   text-align: center;   
-}
+  .table th {
+    text-align: center;
+  }
 
-.table td{
-   text-align: center;   
-}
-
+  .table td {
+    text-align: center;
+  }
 </style>
